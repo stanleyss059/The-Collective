@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="login-signup.css" rel="stylesheet" type="text/css"/>
+  <title>The Collective</title>
+</head>
+
+<body id="body" class="body">
+  <div class="main">
+    <div class="textcontainer">
+      <p class="welcometxt">Welcome to <span class="highlight"><i>"The Collective"</i></span></p>
+      <p class="subtxt">We are happy you decided to come back</p>
+      <button type="button" onclick="changecontent()">Login</button>
+    </div>
+
+    <form id="container">
+      <p class="CAcc">Create Account</p>
+      <div class="social-login">
+        <button class="icon-btn"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" /></button>
+        <button class="icon-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" /></button>
+        <button class="icon-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" /></button>
+      </div>
+      <input type="text" placeholder="Username">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <input type="password" placeholder="Confirm Password">
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <script>
+    let showAlt = false;
+
+    function SignUp() {
+      document.getElementById("body").innerHTML = `
+        <div class="main">
+          <div class="textcontainer">
+            <p class="welcometxt">Welcome to <span class="highlight"><i>"The Collective"</i></span></p>
+            <p class="subtxt">We are happy you decided to come back</p>
+            <button type="button" onclick="changecontent()">Login</button>
+          </div>
+          <form class="container">
+            <p class="CAcc">Create Account</p>
+            <div class="social-login">
+              <button class="icon-btn"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" /></button>
+              <button class="icon-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" /></button>
+              <button class="icon-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" /></button>
+            </div>
+            <input type="text" placeholder="Username">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Confirm Password">
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      `;
+    }
+
+    function Login() {
+      document.getElementById("body").innerHTML = `
+        <div class="main">
+          <form class="container">
+            <p class="CAcc">Login</p>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <div class="forgot-password"><a href="#">Forgot Password?</a></div>
+            <button class="Login" type="submit">Login</button>
+          </form>
+
+          <div class="textcontainer">
+            <p class="welcometxt">Welcome to <span class="highlight"><i>"The Collective"</i></span></p>
+            <p class="subtxt">If you don't have an Account, please create one here</p>
+            <button type="button" onclick="changecontent()">Sign Up</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function changecontent() {
+      const mainbc = document.getElementById("body");
+      mainbc.style.opacity = 0;
+
+      setTimeout(() => {
+        showAlt ? Login() : SignUp(); // fixed function name
+        showAlt = !showAlt;
+        mainbc.style.opacity = "1";
+      }, 400);
+    }
+  </script>
+</body>
+</html>
