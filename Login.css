@@ -39,13 +39,13 @@ input {
   height: 35px;
   border-radius: 8px;
   border: none;
-  width: 220px;
+  width: 300px;
   padding-left: 10px;
   outline: none;
 }
 
 button {
-  width: 220px;
+  width: 300px;
   height: 40px;
   border-radius: 8px;
   border: none;
